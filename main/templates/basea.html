@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block aside %}
+<aside>
+	<a href="{% url 'perfil' %}" title="">
+		<figure>
+			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
+			<h4>Perfil</h4>
+		</figure>
+	</a>
+	<a href="{% url 'home' %}" title="">
+		<figure>
+			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
+			<h4>Home</h4>
+		</figure>
+	</a>
+	<a href="{% url 'horario' %}" title="">
+		<figure>
+			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
+			<h4>Horario</h4>
+		</figure>
+	</a>
+	<a href="{% url 'config' %}" title="">
+		<figure>
+			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
+			<h4>configuracion</h4>
+		</figure>
+	</a>
+</aside>
+{% endblock %}

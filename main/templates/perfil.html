@@ -1,0 +1,39 @@
+{% extends 'basea.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/home.css">
+{% endblock %}
+{% block section %}
+<section>
+	<article id="fanpage">
+		<img src="{{ STATIC_URL}}img/root.png" alt="">
+		<h2>Nombre</h2>
+	</article>
+	<article>
+		<ul class="innerbar">
+			<li id="info" class="info">Información</li>
+			<li id="apuntes" class="apuntes active">Apuntes</li>
+			<li id="record" class="record">Record</li>
+			<li id="config" class="config">configuración</li>
+		</ul>
+	</article>
+	<article class="campos">
+		<div class="info campo">
+			<h3>informacion</h3>
+			<h4>nombre</h4>
+			<h4>carnet de identidad</h4>
+			<h4>carrera</h4>
+			<h4>semestre</h4>
+			<h4>correo</h4>
+		</div>
+		<div class="apuntes campo active">
+			<h3>apuntes</h3>
+		</div>
+		<div class="record campo">
+			<h3>record</h3>
+		</div>
+		<div class="config campo">
+			<h3>configuracion</h3>
+		</div>
+	</article>
+</section>
+{% endblock %}

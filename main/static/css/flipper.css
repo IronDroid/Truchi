@@ -1,0 +1,55 @@
+#table{
+	display: table;
+	margin: 1em auto;
+}
+#contain-table{
+	height: 700px;
+}
+.row{
+	margin-top: .2em;
+	display: table-row;
+}
+.row article{
+	background: #dedede;
+	border: solid .15em white;
+	cursor: pointer;
+	display: table-cell;
+	height: 60px;
+	vertical-align: middle;
+	width: 100px;
+}
+
+.flip-container {
+	perspective: 1000;
+}
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+.flip-container, .front, .back {
+	height: 60px;
+	width: 100px;
+}
+.flipper {
+	text-align: center;
+	transform-style: preserve-3d;
+	transition: 0.6s;
+}
+.front, .back {
+	backface-visibility: hidden;
+	left: 0px;
+	position: relative;
+	top: 0px;
+}
+.front {
+	background: #1ABC9C;
+	z-index: 2;
+}
+.back {
+	background: #F1C40F;
+	position: absolute;
+	transform: rotateY(180deg);
+}
+.row .dia{
+	background: rgb(83, 184, 231);
+	cursor: default;
+}

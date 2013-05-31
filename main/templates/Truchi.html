@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/estilo.css">
+{% endblock %}
+{% block section %}
+<section>
+	<div id="estudiar">
+		<img src="{{ STATIC_URL }}img/estudiar.jpg">
+	</div>
+	<div id="login">
+		<ul>
+			<li><a class="btnlogin" href="{% url "config" %}" title="Registrarse con Google+"><img src="{{ STATIC_URL }}img/google.jpg" alt=""></a></li>
+			<li><a class="btnlogin" href="{% url "socialauth_begin" 'facebook' %}" title="Registrarse con Facebook"><img src="{{ STATIC_URL }}img/facebook.jpg" alt=""></a></li>
+			<li><a class="btnlogin" href="{% url "socialauth_begin" 'twitter' %}" title="Registrarse con Twitter"><img src="{{ STATIC_URL }}img/twitter.jpg" alt=""></a></li>
+		</ul>
+	</div>
+</section>
+{% endblock %}

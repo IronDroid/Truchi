@@ -1,0 +1,76 @@
+aside{
+	background: #323e4a;
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 90px;
+	vertical-align: top;
+}
+aside a{
+	color: white;
+	text-decoration: none;
+}
+aside figure{
+	display: inherit;
+}
+#fanpage *{
+	display: inline-block;
+	vertical-align: middle;
+}
+.campos .campo{
+	height: 0;
+	overflow: hidden;
+	width: 0;
+}
+.campos .active{
+	height: auto;
+	width: auto;
+}
+.innerbar{
+	font-size: 0px;
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 0;
+	text-align: center;
+}
+.innerbar li{
+	background: peru;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	margin: 0;
+	padding: .5em 0;
+	width: 250px;
+}
+.innerbar li:hover{
+	background: olive;
+}
+.innerbar .active{
+	background: olive;
+}
+.sample{
+	background: peru;
+	height: 100px;
+	margin: 1em 2em;
+	padding: 1em;
+	transform: rotate(45deg);
+	transition: .5s;
+	width: 100px;
+}
+.sample:hover{
+	transform: rotate(765deg);
+}
+.sample:nth-child(even){
+	background: olive;
+	margin: 7em 0 1em -4.1em;
+	position: absolute;
+}
+.sample > h3{
+	transform: rotate(-45deg);
+}
+#cuadros .sample{
+	display: inline-block;
+}
+#logo:hover a{
+	animation-direction:alternate;
+}

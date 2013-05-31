@@ -1,0 +1,41 @@
+{% load dajaxice_templatetags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>{{ titulo }}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+	{% block head %}{% endblock %}
+	<script src="{{ STATIC_URL }}js/prefixfree.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.js"></script>
+	{% dajaxice_js_import %}
+	<script src="{{ STATIC_URL }}js/funciones.js"></script>
+</head>
+<body>
+	<header>
+		<hgroup>
+			<h1>Truchi</h1>
+			<h2>{{ subtitle }}</h2>
+		</hgroup>
+	</header>
+	{% block aside %}{% endblock %}
+	<div class="wrap">
+		{% block section %}
+		{% endblock %}
+	</div>
+	<footer>
+		<div>
+			Fundador: Alex Jhonny Cruz Mamani
+		</div>
+		<nav>
+			<ul>
+				<li><a href="http://twitter.com/jhon_limaster" title="">Twitter</a></li>
+				<li><a href="#http://plus.google.com/" title="">Google+</a></li>
+				<li><a href="http://github.com/irondroid" title="">Github</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>

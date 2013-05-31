@@ -1,0 +1,53 @@
+body{
+	background: #00afc4;
+	font-size: 16px;
+	margin: 0 auto;
+	text-align: center;
+}
+footer{
+	background: #333;
+	color: #eee;
+	padding: 1em 0;
+}
+footer ul{
+	list-style: none;
+}
+footer ul li{
+	display: inline-block;
+	margin: 0 2em 0 0;
+}
+footer li a{
+	color: #eee;
+	display: inline-block;
+	padding: 0.5em 0;
+	text-decoration: none;
+}
+footer li a:hover{
+	text-transform: uppercase;
+}
+h1{
+	color: white;
+	margin: .5em;
+}
+header{
+	background: #323e4a;
+	padding: .5em;
+	text-align: left;
+}
+hgroup{
+	margin: 0 auto;
+	max-width: 1000px;
+}
+section{
+	background: #eee;
+	margin: 1em 0;
+	padding: 1em 0;
+}
+section #estudiar, section #login{
+	display: inline-block;
+	vertical-align: middle;
+}
+.wrap{
+	margin: 0 auto;
+	max-width: 1000px;
+}

@@ -1,0 +1,157 @@
+h1,h2{
+	display: inline-block;
+}
+figure{
+	display: inline-block;
+}
+figure div{
+	overflow: hidden;
+}
+figure img{
+	transition: .25s;
+}
+figure #ins1:hover{
+	transform: scale(3.5) translate(-10px,-5px);
+}
+figure #ins2:hover{
+	transform: scale(3) translate(110px,10px);
+}
+figure #ins3:hover{
+	transform: scale(3.5) translate(100px,70px);
+}
+#detalle{
+	background: olive;
+	position: absolute;
+	left: -70px;
+	top: -110px;
+}
+#detalle ul{
+	padding: 0;
+	margin: .5em 0;
+	overflow: hidden;
+}
+#detalle li{
+	background: rgba(228, 43, 120, 0.5);
+	cursor: pointer;
+	margin: .5em .33em;
+}
+#estudiar{
+	font-size: 0px;
+}
+#estudiar img, #login img{
+	width: 100%;
+}
+#instruccion article figure{
+	display: inline-block;
+	width: 30%;
+}
+#instruccion article figure img{
+	width: 100%;
+}
+#login{
+	margin: 0 3em;
+}
+#login ul{
+	list-style: none;
+}
+#login li{
+	margin: 1em 0 0 0;
+}
+#table{
+	display: table;
+	margin: 1em auto;
+}
+#contain-table{
+	height: 0;
+	overflow: hidden;
+	padding: 0 100px;
+}
+.input_text{
+	border-radius: .5em;
+	border: 2px solid #dce4ec;
+	color: #34495e;
+	min-width: 50%;
+	padding: 8px 0 10px 10px;
+	text-indent: 1px;
+}
+.btnlogin img{
+	font-size: 0;
+	transition: .5s ease;
+}
+.btnlogin img:hover{
+	transform: scale(1.1);
+}
+.input_button{
+	transition: .25s;
+	background: #34495e;
+	border-radius: .5em;
+	color: #eee;
+	padding: 12px .5em;
+	text-decoration: none;
+}
+.input_button:hover{
+	background: #4e6d8d;
+}
+.row{
+	margin-top: .2em;
+	display: table-row;
+}
+.row div{
+	background: #dedede;
+	border: solid .15em white;
+	cursor: pointer;
+	display: table-cell;
+	height: 3.5em;
+	margin: .1em;
+	padding: .25em 0;
+	vertical-align: middle;
+	width: 100px;
+}
+.hora{
+	background: #adb;
+}
+.row .hora:active{
+	background: peru;
+}
+.row .dia{
+	background: rgb(83, 184, 231);
+	cursor: default;
+}
+@media (max-width: 850px){
+	#contain-table{
+		padding: 0;
+	}
+}
+
+
+
+
+.flip-container {
+}
+	/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	-webkit-transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+}
+/* hide back of pane during swap */
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/* front pane, placed above back */
+.front {
+	background: #adb;
+	z-index: 2;
+}
+/* back, initially hidden pane */
+.back {
+	background: #dba;
+	-webkit-transform: rotateY(180deg);
+}

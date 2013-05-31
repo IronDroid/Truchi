@@ -1,0 +1,19 @@
+.rslides {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+.rslides li {
+	display: none;
+	left: 0;
+	top: 0;
+}
+.rslides li:first-child {
+	display: block;
+	float: left;
+}
+.rslides img {
+	display: block;
+	min-width: 50%;
+}

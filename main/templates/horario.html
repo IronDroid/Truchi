@@ -1,0 +1,104 @@
+{% extends 'basea.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/home.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/flipper.css">
+{% endblock %}
+{% block section %}
+<section>
+	<section id="contain-table">
+		<h3>Horario</h3>
+		<section id="table">
+			<article class="row">
+				<article class="dia"></article>
+				<article class="dia">Lunes</article>
+				<article class="dia">Martes</article>
+				<article class="dia">Miercoles</article>
+				<article class="dia">Jueves</article>
+				<article class="dia">Viernes</article>
+				<article class="dia">Sabado</article>
+			</article>
+			<article class="row">
+				<article class="dia">08-10</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">EST-165</div>
+						<div class="back">Nilda Flores</div>
+					</div>
+				</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">INF-162</div>
+						<div class="back">Menfy Morales</div>
+					</div>
+				</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">EST-165</div>
+						<div class="back">Nilda Flores</div>
+					</div>
+				</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">INF-162</div>
+						<div class="back">Menfy Morales</div>
+					</div>
+				</article>
+				<article></article>
+				<article></article>
+			</article>
+			<article class="row">
+				<article class="dia">10-12</article>
+				<article></article>
+				<article></article>
+				<article></article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">MAT-125</div>
+						<div class="back">Hernesto Cupe</div>
+					</div>
+				</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">MAT-125</div>
+						<div class="back">Hernesto Cupe</div>
+					</div>
+				</article>
+				<article></article>
+			</article>
+			<article class="row">
+				<article class="dia">12-14</article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">FIS-132</div>
+						<div class="back">Poma</div>
+					</div>
+				</article>
+				<article></article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">FIS-132</div>
+						<div class="back">Poma</div>
+					</div>
+				</article>
+				<article></article>
+				<article></article>
+				<article></article>
+			</article>
+			<article class="row">
+				<article class="dia">14-16</article>
+				<article></article>
+				<article></article>
+				<article></article>
+				<article></article>
+				<article class="flip-container">
+					<div class="flipper">
+						<div class="front">LAB-132</div>
+						<div class="back">Mariscal</div>
+					</div>
+				</article>
+				<article></article>
+			</article>
+		</section>
+	</section>
+</section>
+{% endblock %}

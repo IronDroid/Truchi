@@ -26,4 +26,11 @@
 		</figure>
 	</a>
 </aside>
+<div id="identidad">
+	<h4>{{ nombre }}</h4>
+	<img src="{{ avatar }}" alt="">
+	<a href="{% url 'logout' %}" title="">
+		<button type="text">Salir</button>
+	</a>
+</div>
 {% endblock %}

@@ -1,14 +1,14 @@
 from django.db import models
 
 class Estudiante(models.Model):
-	cod_estudiante = models.CharField(max_length=12, primary_key=True)
-	nombre = models.CharField(max_length=30)
-	periodo = models.CharField(max_length=5)
-	username = models.TextField(unique=True)
+	username = models.TextField(primary_key=True, unique=True)
+	nombre = models.TextField()
+	email = models.EmailField(unique=True)
 	avatar = models.TextField()
+	social_network = models.TextField()
 
 	def __unicode__(self):
-		return self.nombre
+		return self.username
 
 class Materia(models.Model):
 	sigla = models.CharField(max_length=10, primary_key=True)

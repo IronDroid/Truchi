@@ -9,39 +9,10 @@
 		{% csrf_token %}
 		<h3 id="subtitle_form">Configuracion principal</h3>
 		{{formulario.as_p}}
-		<input class="input_text" id="text" type="text" name="horario" value="" placeholder="SIA - pensum">
-		<input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.materias_inscritas(callback_inscripcion, {'urltext':$('#text').val()})"/>
+        <input class="input_text" type="text" value="{{ nombre }}" placeholder="nombre">
+        <input class="input_text" type="text" value="{{ email }}" placeholder="email">
+        <p></p>
+		<input class="input_button" id="input_button" type='button' value='Confirmar'/>
 	</form>
 </section>
-
-<section id="instruccion">
-	<h2>Instruciones</h2>
-    <article>
-    	<figure>
-    		<figcaption>Entrar al sistema academico de la carrera de informatica.</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config1.jpg" alt="" id="ins1">
-    		</div>
-    	</figure>
-    	<figure>
-    		<figcaption>Entrar a "Plan de Estudios" y abrir "ver informe para imprimir".</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config2.jpg" alt="" id="ins2">
-    		</div>
-    	</figure>
-    	<figure>
-    		<figcaption>Copiar la URL del informe para imprimir.</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config3.jpg" alt="" id="ins3">
-    		</div>
-    	</figure>
-    </article>
-</section>
-
-<section id="contain-table">
-	<h3>Horario</h3>
-	<section id="table">
-	</section>
-  </section>
-
-  {% endblock %}
+{% endblock %}

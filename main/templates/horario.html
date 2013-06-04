@@ -1,104 +1,46 @@
-{% extends 'basea.html' %}
+{% extends "basea.html" %}
 {% block head %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/home.css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/flipper.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/estilo.css">
 {% endblock %}
 {% block section %}
-<section>
-	<section id="contain-table">
-		<h3>Horario</h3>
-		<section id="table">
-			<article class="row">
-				<article class="dia"></article>
-				<article class="dia">Lunes</article>
-				<article class="dia">Martes</article>
-				<article class="dia">Miercoles</article>
-				<article class="dia">Jueves</article>
-				<article class="dia">Viernes</article>
-				<article class="dia">Sabado</article>
-			</article>
-			<article class="row">
-				<article class="dia">08-10</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">EST-165</div>
-						<div class="back">Nilda Flores</div>
-					</div>
-				</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">INF-162</div>
-						<div class="back">Menfy Morales</div>
-					</div>
-				</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">EST-165</div>
-						<div class="back">Nilda Flores</div>
-					</div>
-				</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">INF-162</div>
-						<div class="back">Menfy Morales</div>
-					</div>
-				</article>
-				<article></article>
-				<article></article>
-			</article>
-			<article class="row">
-				<article class="dia">10-12</article>
-				<article></article>
-				<article></article>
-				<article></article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">MAT-125</div>
-						<div class="back">Hernesto Cupe</div>
-					</div>
-				</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">MAT-125</div>
-						<div class="back">Hernesto Cupe</div>
-					</div>
-				</article>
-				<article></article>
-			</article>
-			<article class="row">
-				<article class="dia">12-14</article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">FIS-132</div>
-						<div class="back">Poma</div>
-					</div>
-				</article>
-				<article></article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">FIS-132</div>
-						<div class="back">Poma</div>
-					</div>
-				</article>
-				<article></article>
-				<article></article>
-				<article></article>
-			</article>
-			<article class="row">
-				<article class="dia">14-16</article>
-				<article></article>
-				<article></article>
-				<article></article>
-				<article></article>
-				<article class="flip-container">
-					<div class="flipper">
-						<div class="front">LAB-132</div>
-						<div class="back">Mariscal</div>
-					</div>
-				</article>
-				<article></article>
-			</article>
-		</section>
-	</section>
+<section id="url_form">
+	<form id='formulario' action=''>
+		{% csrf_token %}
+		<h3 id="subtitle_form">Configuracion principal</h3>
+		{{formulario.as_p}}
+		<input class="input_text" id="text" type="text" name="horario" value="" placeholder="SIA - pensum">
+		<input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.materias_inscritas(callback_inscripcion, {'urltext':$('#text').val()})"/>
+	</form>
 </section>
-{% endblock %}
+<section id="instruccion">
+	<h2>Instruciones</h2>
+    <article>
+    	<figure>
+    		<figcaption>Entrar al sistema academico de la carrera de informatica.</figcaption>
+    		<div>
+    			<img src="{{ STATIC_URL }}img/config1.jpg" alt="" id="ins1">
+    		</div>
+    	</figure>
+    	<figure>
+    		<figcaption>Entrar a "Plan de Estudios" y abrir "ver informe para imprimir".</figcaption>
+    		<div>
+    			<img src="{{ STATIC_URL }}img/config2.jpg" alt="" id="ins2">
+    		</div>
+    	</figure>
+    	<figure>
+    		<figcaption>Copiar la URL del informe para imprimir.</figcaption>
+    		<div>
+    			<img src="{{ STATIC_URL }}img/config3.jpg" alt="" id="ins3">
+    		</div>
+    	</figure>
+    </article>
+</section>
+
+<section id="contain-table">
+	<h3>Horario</h3>
+	<section id="table">
+	</section>
+  </section>
+
+  {% endblock %}

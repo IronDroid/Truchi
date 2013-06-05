@@ -1,29 +1,18 @@
 {% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/home.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/estilo.css">
+{% endblock %}
 {% block aside %}
 <aside>
-	<a href="{% url 'perfil' %}" title="">
-		<figure>
-			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
-			<h4>Perfil</h4>
-		</figure>
-	</a>
-	<a href="{% url 'home' %}" title="">
-		<figure>
-			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
-			<h4>Home</h4>
-		</figure>
-	</a>
 	<a href="{% url 'horario' %}" title="">
-		<figure>
-			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
-			<h4>Horario</h4>
-		</figure>
+		<h4>Horario</h4>
 	</a>
 	<a href="{% url 'config' %}" title="">
-		<figure>
-			<img src="{{ STATIC_URL}}img/settings.png" alt="settings">
-			<h4>configuracion</h4>
-		</figure>
+		<h4>Configuración</h4>
+	</a>
+	<a href="{% url 'generador' %}" title="">
+		<h4>Generador</h4>
 	</a>
 </aside>
 <div id="identidad">

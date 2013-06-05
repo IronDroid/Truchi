@@ -6,7 +6,16 @@ function inicio () {
 }
 
 function callback_horario(data){
-	console.log(data);
+	console.log(data.materias[1]);
+	var wrap = $(".wrap");
+	var sectionM = document.createElement("section");
+	for (var i = 0; i < data.materias.length; i++) {
+		var mat = document.createElement("div");
+		mat.innerHTML = data.materias[i];
+		sectionM.appendChild(mat);
+	};
+	wrap.append(sectionM);
+	cambios();
 	alert("listo!!!");
 }
 

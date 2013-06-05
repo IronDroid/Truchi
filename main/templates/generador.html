@@ -1,16 +1,15 @@
-{% extends "basea.html" %}
+{% extends 'basea.html' %}
 {% block section %}
 <section id="url_form">
 	<form id='formulario' action=''>
 		{% csrf_token %}
-		<h3 id="subtitle_form">Configuracion principal</h3>
-		{{formulario.as_p}}
-		<input class="input_text" id="text" type="text" name="horario" value="" placeholder="SIA - pensum">
-		<input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.materias_inscritas(callback_inscripcion, {'urltext':$('#text').val()})"/>
+		<h3 id="subtitle_form">Generador de Horarios</h3>
+		<input class="input_text" id="gen_text" type="text" placeholder="SIA - Horarios">
+		<input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.guardar_materias(callback_horario, {'urltextt':$('#gen_text').val()})"/>
 	</form>
 </section>
 <section id="instruccion">
-	<h2>Instruciones</h2>
+	<h2>Instrucciones</h2>
     <article>
     	<figure>
     		<figcaption>Entrar al sistema academico de la carrera de informatica.</figcaption>
@@ -32,11 +31,4 @@
     	</figure>
     </article>
 </section>
-
-<section id="contain-table">
-    <h3>Horario</h3>
-	<section id="table">
-	</section>
-</section>
-
-  {% endblock %}
+{% endblock %}

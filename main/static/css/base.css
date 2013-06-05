@@ -47,6 +47,21 @@ section #estudiar, section #login{
 	display: inline-block;
 	vertical-align: middle;
 }
+#identidad{
+	background: #2980B9;
+	border-radius: .5em;
+	padding: .5em 1em;
+	position: absolute;
+	right: 0px;
+	top: 5px;
+}
+#identidad *{
+	display: inline-block;
+	vertical-align: middle;
+}
+#identidad img{
+	max-height: 50px;
+}
 .wrap{
 	margin: 0 auto;
 	max-width: 1000px;

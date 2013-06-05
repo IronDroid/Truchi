@@ -32,33 +32,30 @@ def materias_inscritas(request, urltext):
 
 # guarda a base de datos
 @dajaxice_register
-def materias(request, urltextt):
+def guardar_materias(request, urltextt):
 	url = urltextt
 	page = urllib2.urlopen(url)
 	soup = BeautifulSoup(page.read())
 	tables= soup('table') #the main table
 	num = 0;
-	est = Estudiante()
+	matlist = []
+	est = Estudiante.objects.get(username=request.user.username)
 	for td in tables[1](['td','th']):
 		num += 1
 		if td.get('nowrap') == None:
 			tdtext='-|-'.join(td(text=True)).strip()
 			if num == 2:
-				# print cod_est
+				print cod_est
 				est.cod_estudiante = tdtext
-			if num == 4:
-				# print nombre_est
-				est.nombre = tdtext
-	for td in tables[2](['td','th']):
-		if td.get('nowrap') == None:
-			tdtext='-|-'.join(td(text=True)).strip()
-			if len(tdtext) < 5:
-				# print periodo
-				est.periodo = tdtext
 	try:
+		print est.cod_estudiante
 		if Estudiante.objects.get(cod_estudiante=est.cod_estudiante):
 			print 'existe!!! salir'
-			return
+			est = Estudiante.objects.get(cod_estudiante=est.cod_estudiante)
+			mats = Materia.objects.filter(estudiante=est)
+			for matx in mats:
+				matlist.append(matx.sigla)
+			return simplejson.dumps({'materias': matlist})
 	except Exception, e:
 		print 'no existe, guardar y continuar'
 		est.save()
@@ -79,8 +76,8 @@ def materias(request, urltextt):
 				nombre_materia = tdtext[7:].strip()
 				mat.nombre = nombre_materia
 				mat.estudiante = est
-				print 'guardar materia'
 				mat.save()
+				print 'guardar materia'
 		# paralelos
 		elif td.get('style') != None or td.get('colspan') != None:
 			tdtext='$'.join(td(text=True)).strip()
@@ -97,6 +94,7 @@ def materias(request, urltextt):
 				par.sigla_paralelo = sigla_paralelo
 				par.id_materia = mat
 				par.save()
+				print 'save paralelos'
 				horario = partes[2]
 				horas = horario.split('$')
 				for hora in horas:
@@ -114,5 +112,11 @@ def materias(request, urltextt):
 					# id_paralelo
 					hor.id_paralelo = par
 					hor.save()
+					print 'save horarios'
 				count = 0
 				linea = ''
+	mats = Materia.objects.filter(estudiante=est)
+	for matx in mats:
+		matlist.append(matx.sigla)
+	print 'retorna Json'
+	return simplejson.dumps({'materias': matlist})

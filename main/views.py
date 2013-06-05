@@ -5,8 +5,6 @@ from django.contrib.auth import logout as social_logout
 from main.models import Estudiante
 
 def index(request):
-	print request.user.is_authenticated()
-	print request.user
 	if request.user.is_authenticated() == True:
 		return redirect('home')
 	return render_to_response('Truchi.html', {'titulo': 'Truchi'}, context_instance=RequestContext(request))
@@ -14,12 +12,10 @@ def index(request):
 @login_required
 def logout(request):
 	social_logout(request)
-	print 'redirect'
 	return redirect('index')
 
 @login_required
 def configuracion(request):
-	print request.user.is_authenticated()
 	est = Estudiante.objects.get(username=request.user.username)
 	return render_to_response('configuracion.html', {
 			'titulo': 'Configuracion', 
@@ -44,5 +40,11 @@ def perfil(request):
 @login_required
 def horario(request):
 	est = Estudiante.objects.get(username=request.user.username)
-	user_data = {'titulo': 'horaio','nombre': est.nombre, 'avatar': est.avatar}
+	user_data = {'titulo': 'horario','nombre': est.nombre, 'avatar': est.avatar}
 	return render_to_response('horario.html', user_data, context_instance=RequestContext(request))
+
+@login_required
+def generador(request):
+	est = Estudiante.objects.get(username=request.user.username)
+	user_data = {'titulo': 'Generador','nombre': est.nombre, 'avatar': est.avatar}
+	return render_to_response('generador.html', user_data, context_instance=RequestContext(request))

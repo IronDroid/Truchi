@@ -6,6 +6,7 @@ class Estudiante(models.Model):
 	email = models.EmailField(unique=True)
 	avatar = models.TextField()
 	social_network = models.TextField()
+	cod_estudiante = models.TextField(blank=True,null=True)
 
 	def __unicode__(self):
 		return self.username

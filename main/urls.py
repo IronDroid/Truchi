@@ -7,4 +7,5 @@ urlpatterns = patterns('main.views',
     url(r'^perfil/$', 'perfil', name='perfil'),
     url(r'^horario/$', 'horario', name='horario'),
     url(r'^logout/$', 'logout', name='logout'),
+    url(r'^generador/$', 'generador', name='generador'),
 )

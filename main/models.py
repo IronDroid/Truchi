@@ -7,6 +7,7 @@ class Estudiante(models.Model):
 	avatar = models.TextField()
 	social_network = models.TextField()
 	cod_estudiante = models.TextField(blank=True,null=True)
+	is_url_horarios = models.BooleanField()
 
 	def __unicode__(self):
 		return self.username

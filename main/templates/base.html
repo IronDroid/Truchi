@@ -7,11 +7,14 @@
 	<title>{{ titulo }}</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
-	{% block head %}{% endblock %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/home.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/estilo.css">
+	{% block stylesheet %}{% endblock %}
 	<script src="{{ STATIC_URL }}js/prefixfree.min.js"></script>
 	<script src="{{ STATIC_URL }}js/jquery.js"></script>
 	{% dajaxice_js_import %}
 	<script src="{{ STATIC_URL }}js/funciones.js"></script>
+	{% block script %}{% endblock %}
 </head>
 <body>
 	<header>
@@ -20,7 +23,7 @@
 			<h2>{{ subtitle }}</h2>
 		</hgroup>
 	</header>
-	{% block aside %}{% endblock %}
+
 	<div class="wrap">
 		{% block section %}
 		{% endblock %}

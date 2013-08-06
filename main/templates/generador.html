@@ -1,34 +1,85 @@
-{% extends 'basea.html' %}
+{% extends 'base.html' %}
+{% block stylesheet %}
+{% if horarios %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/gen.css">
+{% endif %}
+{% endblock %}
+{% block script %}
+<script src="{{ STATIC_URL }}js/callback.js"></script>
+{% endblock %}
 {% block section %}
+{% if not horarios %}
 <section id="url_form">
-	<form id='formulario' action=''>
-		{% csrf_token %}
-		<h3 id="subtitle_form">Generador de Horarios</h3>
-		<input class="input_text" id="gen_text" type="text" placeholder="SIA - Horarios">
-		<input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.guardar_materias(callback_horario, {'urltextt':$('#gen_text').val()})"/>
-	</form>
+    <form id='formulario'>
+        {% csrf_token %}
+        <h3 id="subtitle_form">Configuracion principal</h3>
+        <input class="input_text" id="gen_text" type="text" placeholder="SIA - Horarios">
+        <input class="input_button" id="input_button" type='button' value='Confirmar' onclick="Dajaxice.main.guardar_materias(callback_horario, {'urltextt':$('#gen_text').val()})"/>
+    </form>
 </section>
 <section id="instruccion">
-	<h2>Instrucciones</h2>
+    <h2>Instrucciones</h2>
     <article>
-    	<figure>
-    		<figcaption>Entrar al sistema academico de la carrera de informatica.</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config1.jpg" alt="" id="ins1">
-    		</div>
-    	</figure>
-    	<figure>
-    		<figcaption>Entrar a "Plan de Estudios" y abrir "ver informe para imprimir".</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config2.jpg" alt="" id="ins2">
-    		</div>
-    	</figure>
-    	<figure>
-    		<figcaption>Copiar la URL del informe para imprimir.</figcaption>
-    		<div>
-    			<img src="{{ STATIC_URL }}img/config3.jpg" alt="" id="ins3">
-    		</div>
-    	</figure>
+        <figure>
+            <figcaption>Entrar al sistema academico de la carrera de informatica.</figcaption>
+            <div>
+                <img src="{{ STATIC_URL }}img/config1.jpg" alt="" id="ins1">
+            </div>
+        </figure>
+        <figure>
+            <figcaption>Entrar a "Plan de Estudios" y abrir "ver informe para imprimir".</figcaption>
+            <div>
+                <img src="{{ STATIC_URL }}img/config2.jpg" alt="" id="ins2">
+            </div>
+        </figure>
+        <figure>
+            <figcaption>Copiar la URL del informe para imprimir.</figcaption>
+            <div>
+                <img src="{{ STATIC_URL }}img/config3.jpg" alt="" id="ins3">
+            </div>
+        </figure>
     </article>
 </section>
+{% else %}
+<section id="contain-table">
+    <article id="materias">
+        {% for sigla in siglas_materia %}
+            <input id="{{sigla}}" type="checkbox">{{ sigla }}</input>
+        {% endfor %}
+    </article>
+    <input type="button" onclick="getMaterias()" value="Obtener combinaciones">
+</section>
+{% endif %}
+
+    <aside>
+        <a href="{% url 'horario' %}" title="">
+            <h4>Horario</h4>
+        </a>
+        <a href="{% url 'generador' %}" title="">
+            <h4>Generador</h4>
+        </a>
+    </aside>
+    <div id="identidad">
+        <h4>{{ nombre }}</h4>
+        <a href="{% url 'config' %}">
+            <img src="{{ avatar }}" alt="">
+        </a>
+        <a href="{% url 'logout' %}" title="">
+            <button type="text">Salir</button>
+        </a>
+    </div>
+
+<script>
+    function getMaterias() {
+        var materias = new Array();
+        var materiasCheckbox = $('#materias input');
+        materiasCheckbox.each(function (index, domEle) {
+            if ($(domEle)[0].checked) {
+                materias.push($(domEle)[0].id)
+            }
+        });
+        var materiasString = materias.join(";");
+        Dajaxice.main.combinacion(resCombi, {'lista': materiasString})
+    }
+</script>
 {% endblock %}

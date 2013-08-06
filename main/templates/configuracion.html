@@ -1,4 +1,4 @@
-{% extends "basea.html" %}
+{% extends "base.html" %}
 {% block section %}
 <section id="url_form">
 	<form id='formulario' action=''>
@@ -11,4 +11,22 @@
 		<input class="input_button" id="input_button" type='button' value='Confirmar'/>
 	</form>
 </section>
+
+	<aside>
+		<a href="{% url 'horario' %}" title="">
+			<h4>Horario</h4>
+		</a>
+		<a href="{% url 'generador' %}" title="">
+			<h4>Generador</h4>
+		</a>
+	</aside>
+	<div id="identidad">
+		<h4>{{ nombre }}</h4>
+		<a href="{% url 'config' %}">
+			<img src="{{ avatar }}" alt="">
+		</a>
+		<a href="{% url 'logout' %}" title="">
+			<button type="text">Salir</button>
+		</a>
+	</div>
 {% endblock %}

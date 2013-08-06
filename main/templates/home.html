@@ -1,4 +1,4 @@
-{% extends "basea.html" %}
+{% extends "base.html" %}
 {% block section %}
 <section id="cuadros">
 	<article class="sample">
@@ -14,4 +14,22 @@
 		<h3>hola como estas???. responde</h3>
 	</article>
 </section>
+
+	<aside>
+		<a href="{% url 'horario' %}" title="">
+			<h4>Horario</h4>
+		</a>
+		<a href="{% url 'generador' %}" title="">
+			<h4>Generador</h4>
+		</a>
+	</aside>
+	<div id="identidad">
+		<h4>{{ nombre }}</h4>
+		<a href="{% url 'config' %}">
+			<img src="{{ avatar }}" alt="">
+		</a>
+		<a href="{% url 'logout' %}" title="">
+			<button type="text">Salir</button>
+		</a>
+	</div>
 {% endblock %}

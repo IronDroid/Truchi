@@ -1,0 +1,11 @@
+#contain-table{
+	height: auto;
+	padding: 1em 100px;
+}
+article{
+	display: inline-block;
+}
+input, h5{
+	display: inline-block;
+	margin: .5em 2em;
+}

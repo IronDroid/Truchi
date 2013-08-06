@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as social_logout
-from main.models import Estudiante
+from main.models import Estudiante, Materia
 
 def index(request):
 	if request.user.is_authenticated() == True:
@@ -46,5 +46,12 @@ def horario(request):
 @login_required
 def generador(request):
 	est = Estudiante.objects.get(username=request.user.username)
-	user_data = {'titulo': 'Generador','nombre': est.nombre, 'avatar': est.avatar}
+	matSigla = list()
+	if est.is_url_horarios:
+		materias = Materia.objects.filter(estudiante=est)
+		print materias
+		for materia in materias:
+			print materia.sigla
+			matSigla.append(materia.sigla)
+	user_data = {'titulo': 'Generador','nombre': est.nombre, 'avatar': est.avatar, 'horarios': est.is_url_horarios, 'siglas_materia':matSigla}
 	return render_to_response('generador.html', user_data, context_instance=RequestContext(request))

@@ -61,11 +61,6 @@ figure #ins3:hover{
 	display: table;
 	margin: 1em auto;
 }
-#contain-table{
-	height: 0;
-	overflow: hidden;
-	padding: 0 100px;
-}
 .input_text{
 	border-radius: .5em;
 	border: 2px solid #dce4ec;

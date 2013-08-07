@@ -44,6 +44,11 @@ function resCombi(data) {
     // alert("numero de horaios: " + data.horarios);
     var lists = data.listgen;
     var wrap = $(".wrap");
+    var sectionR = document.createElement("section");
+    var divRes = document.createElement("div");
+    divRes.innerHTML = "Horarios Generados: " + lists.length;
+    sectionR.appendChild(divRes);
+    wrap.append(sectionR);
     var sectionM = document.createElement("section");
     // lista de horarios combinados
     for (var i = 0; i < lists.length; i++) {
@@ -59,7 +64,15 @@ function resCombi(data) {
                 var div = document.createElement("div");
                 div.setAttribute("class", "dia");
                 hora = dia[k];
+                if (hora.length > 1) {
+                    div.setAttribute("class", "hora");
+                };
+                div.innerHTML = hora;
+                article.appendChild(div);
             };
+            sectionM.appendChild(article);
         };
+        sectionM.appendChild(document.createElement("section"));
     };
+    wrap.append(sectionM);
 }

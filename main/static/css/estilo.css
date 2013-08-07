@@ -102,11 +102,12 @@ figure #ins3:hover{
 	vertical-align: middle;
 	width: 100px;
 }
-.hora{
-	background: #adb;
+.row .hora{
+	background: #e74c3c;
+	transition: .25s linear;
 }
-.row .hora:active{
-	background: peru;
+.row .hora:hover{
+	background: #ec7063;
 }
 .row .dia{
 	background: rgb(83, 184, 231);

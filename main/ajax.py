@@ -20,7 +20,7 @@ def combinacion(request, lista):
 	horasT = ('08:00','10:00','12:00','14:00','16:00','18:00','20:00')
 	sw = True
 	for combinacion in combinaciones:
-		genhorario = [ [""] * 7 for x in [''] * 6]
+		genhorario = [ [""] * 6 for x in [''] * 7]
 		for mat in combinacion:
 			sw = True
 			nombre_mat = mat[:7]
@@ -29,11 +29,11 @@ def combinacion(request, lista):
 			paralelo = Paralelo.objects.get(id_materia = materia, sigla_paralelo = sigla_par)
 			horario = Horario.objects.filter(id_paralelo = paralelo)
 			for hora in horario:
-				if genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] == '':
-					genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] = nombre_mat
+				if genhorario[horasT.index(hora.hora_inicio)][diasT.index(hora.dia)] == '':
+					genhorario[horasT.index(hora.hora_inicio)][diasT.index(hora.dia)] = nombre_mat
 				else:
 					sw = False
-					print 'CHOQUE'
+					# print 'CHOQUE!!!!'
 					break
 		if sw:
 			listgen.append(genhorario)

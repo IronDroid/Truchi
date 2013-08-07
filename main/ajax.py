@@ -12,7 +12,29 @@ def combinacion(request, lista):
 		m = Materia.objects.get(sigla = materia)
 		for paralelo in Paralelo.objects.filter(id_materia = m):
 			simbolos.append(materia+paralelo.sigla_paralelo)
-	return combinacionMaterias(simbolos, materias)
+	
+	combinaciones = combinacionMaterias(simbolos, materias)
+
+	genhorario = [ [""] * 7 ] * 6
+	diasT = ('LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SABADO')
+	horasT = ('08:00','10:00','12:00','14:00','16:00','18:00','20:00')
+	for combinacion in combinaciones:
+		genhorario = [ [""] * 7 for x in [''] * 6]
+		for mat in combinacion:
+			nombre_mat = mat[:7]
+			materia = Materia.objects.get(sigla = nombre_mat)
+			sigla_par = mat[7:]
+			paralelo = Paralelo.objects.get(id_materia = materia, sigla_paralelo = sigla_par)
+			horario = Horario.objects.filter(id_paralelo = paralelo)
+			for hora in horario:
+				if genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] == '':
+					genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] = nombre_mat
+				else:
+					print 'CHOQUE!!!!!!!!!!!!!!!'
+		print genhorario
+		# print len(combinacion)
+	return len(combinaciones)
+
 
 @dajaxice_register
 def materias_inscritas(request, urltext):
@@ -51,6 +73,7 @@ def guardar_materias(request, urltextt):
 	num = 0
 	matlist = []
 	est = Estudiante.objects.get(username=request.user.username)
+	print est.nombre
 	for td in tables[1](['td','th']):
 		num += 1
 		if td.get('nowrap') == None:
@@ -155,20 +178,15 @@ def combinacionMaterias(simbolos, materias):
 	# S = ['a','b','c','d']
 	num_materias = len(S)
 	l = simbolos
-	BoolS = [True] * num_materias
 	res = list()
 	for x in combinations(l, num_materias):
-		BoolS = [True] * num_materias
-		for y in x:
-			for num in range(num_materias):
-				if S[num] == y[:7]:
-					if BoolS[num]:
-						BoolS[num] = False
-			marca = True
-			for sw in BoolS:
-				marca = sw
-				if sw:
-					break
-			if not marca:
-				res.append(x)
-	return len(res)
+		sw = True;
+		cad = ' '.join(list(x))
+		for mats in S:
+			if cad.count(mats) != 1:
+				sw = False
+				break
+		if sw:
+			res.append(x)
+			print x
+	return res

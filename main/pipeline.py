@@ -22,4 +22,10 @@ def get_user_avatar(backend, details, response, social_user, uid, user, *args, *
         # nombre_avatar = url.split('/')[-1]
         # userest.avatar.save(nombre_avatar, File(open(content[0])), save=True)
 
-        userest.save()
+        try:
+            if not Estudiante.objects.get(username = userest.username) != None:
+                print 'se guarda el usuario al iniciar sesion'
+                userest.save()
+        except Exception, e:
+            print 'exception: guardar'
+            userest.save()

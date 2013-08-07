@@ -9,7 +9,6 @@ function callback_horario(data){
 	};
 	wrap.append(sectionM);
 	cambios();
-	alert("listo!!!");
 }
 
 function callback_inscripcion(data){
@@ -41,5 +40,26 @@ function callback_inscripcion(data){
 }
 
 function resCombi(data) {
-    alert("numero de combinaciones de materias: " + data);
+    // alert("numero de combinaciones de materias: " + data.combinaciones);
+    // alert("numero de horaios: " + data.horarios);
+    var lists = data.listgen;
+    var wrap = $(".wrap");
+    var sectionM = document.createElement("section");
+    // lista de horarios combinados
+    for (var i = 0; i < lists.length; i++) {
+        // horarios
+        var horario = lists[i];
+        // cada item es un dia del horario
+        for (var j = 0; j < horario.length; j++) {
+            var article = document.createElement("article");
+            article.setAttribute("class", "row");
+            var dia = horario[j];
+            // cada item es una hora de clase
+            for (var k = 0; k < dia.length; k++) {
+                var div = document.createElement("div");
+                div.setAttribute("class", "dia");
+                hora = dia[k];
+            };
+        };
+    };
 }

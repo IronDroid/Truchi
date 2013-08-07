@@ -49,9 +49,7 @@ def generador(request):
 	matSigla = list()
 	if est.is_url_horarios:
 		materias = Materia.objects.filter(estudiante=est)
-		print materias
 		for materia in materias:
-			print materia.sigla
 			matSigla.append(materia.sigla)
 	user_data = {'titulo': 'Generador','nombre': est.nombre, 'avatar': est.avatar, 'horarios': est.is_url_horarios, 'siglas_materia':matSigla}
 	return render_to_response('generador.html', user_data, context_instance=RequestContext(request))

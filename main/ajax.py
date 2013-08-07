@@ -15,12 +15,14 @@ def combinacion(request, lista):
 	
 	combinaciones = combinacionMaterias(simbolos, materias)
 
-	genhorario = [ [""] * 7 ] * 6
+	listgen = []
 	diasT = ('LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SABADO')
 	horasT = ('08:00','10:00','12:00','14:00','16:00','18:00','20:00')
+	sw = True
 	for combinacion in combinaciones:
 		genhorario = [ [""] * 7 for x in [''] * 6]
 		for mat in combinacion:
+			sw = True
 			nombre_mat = mat[:7]
 			materia = Materia.objects.get(sigla = nombre_mat)
 			sigla_par = mat[7:]
@@ -30,10 +32,13 @@ def combinacion(request, lista):
 				if genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] == '':
 					genhorario[diasT.index(hora.dia)][horasT.index(hora.hora_inicio)] = nombre_mat
 				else:
-					print 'CHOQUE!!!!!!!!!!!!!!!'
-		print genhorario
-		# print len(combinacion)
-	return len(combinaciones)
+					sw = False
+					print 'CHOQUE'
+					break
+		if sw:
+			listgen.append(genhorario)
+	# return simplejson.dumps({'combinaciones':len(combinaciones), 'horarios':len(listgen)})
+	return simplejson.dumps({'listgen':listgen})
 
 
 @dajaxice_register
@@ -188,5 +193,4 @@ def combinacionMaterias(simbolos, materias):
 				break
 		if sw:
 			res.append(x)
-			print x
 	return res
